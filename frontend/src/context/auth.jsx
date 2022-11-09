@@ -1,5 +1,5 @@
 import { createContext, useState, useContext } from "react";
-import { login as loginAction } from '../actions';
+import { login as loginAction, register as RegisterAction } from '../actions';
 
 export const AuthContext = createContext({});
 
@@ -12,14 +12,15 @@ export const AuthProvider = ({ children }) => {
       if (response.type === 'success') {
         setUsername(data.username);
         setIsLogged(true);
-        return true;
+        return {type: true, message: response.message };
       }
+      else if (response.type === 'err') return {type: false, message: response.message };
   }
 
-  // async function register(data) {
-  //   const response = await RegisterAction(data);
-  //   if (response.type === 'success') return true;
-  // }
+  async function register(data) {
+    const response = await RegisterAction(data);
+    return {type: true, message: response.message};
+  }
 
   function logout() {
     setUsername("");
@@ -32,6 +33,8 @@ export const AuthProvider = ({ children }) => {
         username,
         isLogged,
         login,
+        register,
+        logout
       }}
     >
       {children}

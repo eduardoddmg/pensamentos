@@ -14,7 +14,7 @@ import {
   AlertDescription
 } from "@chakra-ui/react";
 import { useState, useEffect, useContext } from "react";
-import { useAuth } from "../context";
+import { useAuth, usePosts } from "../context";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import axios from 'axios';
@@ -55,13 +55,18 @@ function Login() {
   } = useForm();
 
   const auth = useAuth();
+  const posts = usePosts();
   const navigate = useNavigate();
 
   const loginForm = async (data) => {
     setLoading(true);
     const response = await auth.login(data);
-    response ? setMessage('login efetuado com sucesso!') : setMessage('login mal feito')
+    setMessage(response.message);
     setLoading(false);
+    if (response.type) {
+      // posts.getPosts();
+      navigate('/');
+    }
   };
 
   return (

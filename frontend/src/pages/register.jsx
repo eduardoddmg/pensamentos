@@ -48,7 +48,7 @@ const config = {
 function Register() {
   const auth = useAuth();
 
-  const [messageAlert, setMessageAlert] = useState("");
+  const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
   const {
     register,
@@ -61,8 +61,9 @@ function Register() {
 
   const sendForm = async (data) => {
     setLoading(true);
-    axios.post('http://localhost:3000/users', data);
-    console.log(data);
+    const response = await auth.register(data);
+    console.log(response);
+    setMessage(response.message);
     setLoading(false);
   };
 
@@ -79,6 +80,9 @@ function Register() {
         p={10}
       >
         <Heading>Register</Heading>
+        {message && <Center>
+          <Text>{message}</Text>
+        </Center>}
         <FormControl isInvalid={errors.username}>
           <FormLabel>Username</FormLabel>
           <Input

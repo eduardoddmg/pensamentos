@@ -9,6 +9,53 @@
       "username": "eduardoddmg",
       "password": "12345678",
       "id": 2
+    },
+    {
+      "username": "nsajnsajk",
+      "password": "snjkasnjksa",
+      "id": 3
+    },
+    {
+      "username": "nsajnsajka",
+      "password": "snjkasnjksa",
+      "id": 4
+    },
+    {
+      "username": "eduardoddmga",
+      "password": "12345678",
+      "id": 5
+    },
+    {
+      "username": "joaozinho",
+      "password": "12345678",
+      "id": 6
+    }
+  ],
+  "posts": [
+    {
+      "text": "Estou pensando em pegar uma praia",
+      "usernameCreated": "joaozinho",
+      "id": 1
+    },
+    {
+      "text": "Acho que eu vou viajar",
+      "usernameCreated": "eduardoddmg",
+      "id": 2
+    },
+    {
+      "text": "ola",
+      "usernameCreated": "eduardoddmg",
+      "id": 3
+    },
+    {
+      "text": "ola",
+      "usernameCreated": "eduardoddmg",
+      "id": 4
+    },
+    {
+      "text": "ola",
+      "usernameCreated": "eduardoddmg",
+      "id": 5
     }
   ]
 }
